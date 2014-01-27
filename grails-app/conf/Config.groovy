@@ -114,6 +114,9 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
+def appName = grails.util.Metadata.current.'app.name'
+def baseURL = grails.serverURL ?: "http://127.0.0.1:8080/${appName}"
+
 oauth {
   // ...
   providers {
@@ -124,7 +127,7 @@ oauth {
       secret = 'EnuVcoM6Ukf6wXb7XqF-zZ2j'
       successUri = '/oauth/google/success'
       failureUri = '/oauth/google/error'
-      callback = "http://127.0.0.1:8080/google-signin/oauth/google/callback"
+      callback = "${baseURL}/oauth/google/callback"
       scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
     }
     // ...
@@ -147,3 +150,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 
+
+// Added by the Spring Security OAuth plugin:
+grails.plugin.springsecurity.oauth.domainClass = 'googlesignin.OAuthID'
