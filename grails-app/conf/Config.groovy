@@ -140,14 +140,15 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'googlesignin.User
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'googlesignin.UserRole'
 grails.plugin.springsecurity.authority.className = 'googlesignin.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-    '/**':                              ['permitAll'],
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+
+    '/oauth/**':                              ['permitAll']
 ]
 
 
