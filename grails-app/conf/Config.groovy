@@ -154,3 +154,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'googlesignin.OAuthID'
+
+// See issue #4: https://github.com/bagage/grails-google-authentification-example/issues/4#issuecomment-35745139
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
