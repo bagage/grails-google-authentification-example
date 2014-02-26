@@ -123,8 +123,8 @@ oauth {
     // for Google OAuth 2.0
     google {
       api = org.grails.plugin.springsecurity.oauth.GoogleApi20
-      key = '67215815339-i3kv250l2nn6jnq6jbi8csg6e9bao496.apps.googleusercontent.com'
-      secret = 'EnuVcoM6Ukf6wXb7XqF-zZ2j'
+      key = '1056211852217-g9bte622em66q3sob1lili9b5ussp46a.apps.googleusercontent.com'
+      secret = 'gD0Gn2H7Fuppc__d8ycgwx2V'
       successUri = '/oauth/google/success'
       failureUri = '/oauth/google/error'
       callback = "${baseURL}/oauth/google/callback"
