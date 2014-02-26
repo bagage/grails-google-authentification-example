@@ -139,7 +139,7 @@ oauth {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'googlesignin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'googlesignin.UserRole'
 grails.plugin.springsecurity.authority.className = 'googlesignin.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+grails.plugin.springsecurity.interceptUrlMap = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
@@ -147,8 +147,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-
-    '/oauth/**':                              ['permitAll']
+  '/login/**':                      ['permitAll'],
+  '/logout/**':                     ['permitAll'],
+  '/oauth/**':                      ['permitAll']
 ]
 
 
@@ -157,3 +158,5 @@ grails.plugin.springsecurity.oauth.domainClass = 'googlesignin.OAuthID'
 
 // See issue #4: https://github.com/bagage/grails-google-authentification-example/issues/4#issuecomment-35745139
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+// Allow logout with a GET request
+grails.plugin.springsecurity.logout.postOnly = false
