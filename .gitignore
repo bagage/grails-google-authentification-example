@@ -5,3 +5,5 @@ target-eclipse/
 .project
 .settings/org.eclipse.jdt.groovy.core.prefs
 .settings
+.idea
+.slcache

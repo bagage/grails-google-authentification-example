@@ -44,7 +44,6 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
-        mavenRepo 'http://repo.spring.io/milestone'
     }
 
     dependencies {
@@ -54,24 +53,26 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.47"
+        build ":tomcat:7.0.55.3" // or ":tomcat:8.0.22"
 
         // plugins for the compile step
-        compile ":scaffolding:2.0.1"
-        compile ':cache:1.1.1'
+        compile ":scaffolding:2.1.2"
+        compile ':cache:1.1.8'
+        // asset-pipeline 2.0+ requires Java 7, use version 1.9.x with Java 6
+        compile ":asset-pipeline:2.2.3"
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.6"
-        runtime ":database-migration:1.3.8"
-        runtime ":jquery:1.10.2.2"
-        runtime ":resources:1.2.1"
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0.1"
-        //runtime ":cached-resources:1.1"
-        //runtime ":yui-minify-resources:0.1.5"
+        runtime ":hibernate4:4.3.10" // or ":hibernate:3.6.10.18"
+        runtime ":database-migration:1.4.0"
+        runtime ":jquery:1.11.1"
 
+        // Uncomment these to enable additional asset-pipeline capabilities
+        //compile ":sass-asset-pipeline:1.9.0"
+        //compile ":less-asset-pipeline:1.10.0"
+        //compile ":coffee-asset-pipeline:1.8.0"
+        //compile ":handlebars-asset-pipeline:1.3.0.3"
 
-        compile ':spring-security-core:2.0-RC2'
-        compile ':spring-security-oauth-google:0.2'
+        //compile ':spring-security-oauth:2.1.0-RC4'
+        compile ':spring-security-oauth-google:0.3.1'
     }
 }
