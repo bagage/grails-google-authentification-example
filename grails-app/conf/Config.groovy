@@ -147,16 +147,38 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-  '/login/**':                      ['permitAll'],
-  '/logout/**':                     ['permitAll'],
-  '/oauth/**':                      ['permitAll']
+    '/login/**':                      ['permitAll'],
+    '/logout/**':                     ['permitAll'],
+    '/oauth/**':                      ['permitAll']
 ]
 
 
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'googlesignin.OAuthID'
 
-// See issue #4: https://github.com/bagage/grails-google-authentification-example/issues/4#issuecomment-35745139
+
+// Instead of using InterceptUrlMap you can choose to use annotations on your controllers.
+// Do the following:
+//      * Add @Secured annotations to your controllers
+//      * Remove the entire "grails.plugin.springsecurity.interceptUrlMap" above
+//      * Change the "grails.plugin.springsecurity.securityConfigType" below
+//      * Uncomment the lines below regarding securityConfigType and staticRules
+// See this blog for more details: http://theexceptioncatcher.com/blog/2015/04/spring-security-oauth-the-missing-instructions/
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+//grails.plugin.springsecurity.securityConfigType = 'Annotation'
+//grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+//        '/':                              ['permitAll'],
+//        '/index':                         ['permitAll'],
+//        '/index.gsp':                     ['permitAll'],
+//        '/login/**':                      ['permitAll'],
+//        '/assets/**':                     ['permitAll'],
+//        '/**/js/**':                      ['permitAll'],
+//        '/**/css/**':                     ['permitAll'],
+//        '/**/images/**':                  ['permitAll'],
+//        '/**/favicon.ico':                ['permitAll'],
+//        '/oauth/**':                      ['permitAll'],
+//        '/springSecurityOAuth/**':        ['permitAll']
+//]
+
 // Allow logout with a GET request
 grails.plugin.springsecurity.logout.postOnly = false
